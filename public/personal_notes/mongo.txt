@@ -1,0 +1,15 @@
+Start mongod
+Start npx mongosh
+Commands for sh:
+    show dbs - shows databases (populated)
+    show collections - shows collections within the db
+    Data manipulation:
+    Insert: db.[NAMEOFCOLLECTION].insertOne({});
+    Find: db.[NAMEOFCOLLECTION].find()
+        ex. db.users.find(... {age: {$gt : 18}}).limit(2); Finds all users who are greater than 18, shows a limit of two objects/registries
+    Delete: db.[NAMEOFCOLLECTION].delete(One/Many)
+        ex. db.users.deleteMany({status: 'canceled'}); Finds all objects that have the staus cancelled and deletes them
+    Update: db.[NAMEOFCOLLECTION].update(One/Many)
+        ex. db.users.updateOne(...{status: peding}, ...{$set: {status: 'pending'}}...);
+    Drop: db.[NAMEOFCOLLECTION].drop
+        ex. db.users.drop(); Deletes/drops the collection from the database;

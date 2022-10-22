@@ -18,13 +18,28 @@ import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+//Import Mongoose Module
+import mongoose from 'mongoose';
+
 // Configuration Module
-import { Secret } from "../config/config.js";
+import { MongoURI, Secret } from "../config/config.js";
 
 // Import Router
 import indexRouter from './routes/index.route.server.js';
+import bizcontactsRouter from './routes/bizcontacts.route.server.js';
+
+import { Mongoose } from "mongoose";
+
 // Start server
 const app = express();
+
+//Complete DB config
+mongoose.connect(MongoURI);
+const db = mongoose.connection; 
+
+//Listen  for connection success/error
+db.on('open', ()=> console.log('Connected to DB'));
+db.on('error', ()=> console.log("Error relating to MONGO"));
 
 // setup ViewEngine EJS
 app.set('views', path.join(__dirname,'/views'));
@@ -45,6 +60,6 @@ app.use(session({
 
 // Use Routes
 app.use('/', indexRouter);
-
+app.use('/', bizcontactsRouter);
 
 export default app;
