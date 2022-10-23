@@ -1,5 +1,14 @@
+
+/*
+* FILE			    :	server.js
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+*/
+
 import debug from 'debug';
-debug('comp-229');
+debug('YMLONGASSIGNMENT');
 import http from 'http';
 
 import app from './app/app.js';

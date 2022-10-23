@@ -1,12 +1,25 @@
+/*
+* FILE			    :	users.js
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+*/
 import mongoose from 'mongoose';
+import passportLocalMongoose from 'passport-local-mongoose';
+const { PassportLocalSchema } = mongoose;
 
 const Schema = mongoose.Schema;
 
-//I have the parameters first and then the options second {},{options}
 const UserSchema = new Schema({
+    displayName: String,
     username: String,
-    password: String,
-    emailadd: String,
-},{timestamps: true, collection:'users'});
+    emailAddress: String,    
+}, {
+    timestamps: true,
+    colleciton: 'users'
+});
 
-export default mongoose.model('Users',UserSchema);
+UserSchema.plugin(passportLocalMongoose);
+
+export default mongoose.model('User', UserSchema);

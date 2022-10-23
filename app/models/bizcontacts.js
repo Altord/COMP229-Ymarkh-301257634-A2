@@ -1,3 +1,10 @@
+/*
+* FILE			    :	bizcontacts.js
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+*/
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;

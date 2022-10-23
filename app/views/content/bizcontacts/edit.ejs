@@ -1,3 +1,11 @@
+<!--
+* FILE			    :	edit.ejs
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+-->
+
 <div class="container">
    <!--I don't understand why this creates an issue when being rendered but list doesn't???-->
     <div class="row">
@@ -7,36 +15,35 @@
             <form class="form" method="POST">
                 <input type="hidden" name="id" value="<%= bizcontacts._id %>" >
                 <div class="form-group">
-                    <label for="nameTextField">Contact Name</label>
+                    <label for="contactName">Contact Name</label>
                     <input type="text" class="form-control"
-                    id="nameTextField"
+                    id="contactName"
                     placeholder="Enter the name of the contact"
-                    name="name" 
+                    name="contactName" 
                     value="<%= bizcontacts.contactName %>"
                     required>
                 </div>
 
                 <div class="form-group">
-                    <label for="numberTextField">Contact Number</label>
+                    <label for="contactNumber">Contact Number</label>
                     <input type="text" class="form-control"
-                    id="numberTextField"
+                    id="contactNumber"
                     placeholder="Enter the contact's number"
-                    name="number" 
+                    name="contactNumber" 
                     value="<%= bizcontacts.contactNumber %>"
                     required>
                 </div>
 
                 <div class="form-group">
-                    <label for="emailTextField">Email</label>
+                    <label for="emailAddress">Email</label>
                     <input type="text" class="form-control"
-                    id="emailTextField"
+                    id="emailAddress"
                     placeholder="Enter the contacts email"
-                    name="email" 
+                    name="emailAddress" 
                     value="<%= bizcontacts.emailAddress %>"
                     required>
                 </div>
-                <!--<button type = "button" onclick ="(console.log(document.getElementById('emailTextField').value))" class="btn">test</button>
-                -->
+             
                <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
@@ -45,7 +52,7 @@
                     <a href="/bizcontacts-delete/<%= bizcontacts._id %>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Delete</a>
                     
-                    </form>
+                </form>
         </div>
 
     </div>

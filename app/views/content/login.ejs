@@ -1,51 +1,61 @@
+<!--
+* FILE			    :	login.ejs
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+-->
+
 <div class="container">
-    <!--I don't understand why this creates an issue when being rendered but list doesn't???-->
-     <div class="row">
-         <div class="offset-md-3 col-md-6">
-             <h1><%= title %></h1>
- 
-             <form class="form" method="POST">
-                 <input type="hidden" name="id" value="<%= bizcontacts._id %>" >
-                 <div class="form-group">
-                     <label for="userNameField">Contact Name</label>
-                     <input type="text" class="form-control"
-                     id="userNameField"
-                     placeholder="Enter the name of the contact"
-                     name="name" 
-                     value=""
-                     required>
-                 </div>
- 
-                 <div class="form-group">
-                     <label for="numberTextField">Contact Number</label>
-                     <input type="text" class="form-control"
-                     id="numberTextField"
-                     placeholder="Enter the contact's number"
-                     name="number" 
-                     value="<%= bizcontacts.contactNumber %>"
-                     required>
-                 </div>
- 
-                 <div class="form-group">
-                     <label for="emailTextField">Email</label>
-                     <input type="text" class="form-control"
-                     id="emailTextField"
-                     placeholder="Enter the contacts email"
-                     name="email" 
-                     value="<%= bizcontacts.emailAddress %>"
-                     required>
-                 </div>
+    <div class="row">
+      <div class="offset-md-3 col-md-6 col-sm-12">
+            <div class="login" id="contentArea">
+                <h1 class="display-4">Login</h1>
+  
+                <!-- Message Area -->
+                <% if(messages.length > 0) { %>
+                  <div id="messageArea" class="alert alert-danger">
+                  <%= messages %>
+                </div>
+                <% } %>
+  
+                <form method="POST" id="loginForm" novalidate>
+                  <div class="form-group mb-2">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-user">
+                        </i>
+                      </span>
+                      <input type="text" class="form-control" id="username" name="username"  required
+                      value="" placeholder="Enter your username">
+                    </div>
+                  
+                  </div>
+  
+                  <div class="form-group mb-2">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-lock">
+                        </i>
+                      </span>
+                      <input type="password" class="form-control" id="password" name="password"  required
+                      value="" placeholder="Enter your password">
+                    </div>
+                  
+                  </div>                                        
+                  <div class="text-end">
+                    <button id="loginButton" type="submit" class="btn btn-primary btn-lg">
+                      <i class="fas fa-sign-in-alt"></i> Login</button>
+                      <button id="cancelButton" type="reset" class="btn btn-warning btn-lg">
+                        <i class="fas fa-undo"></i> Cancel</button>
+                  </div>
+                </form>
               
-                <button class="btn btn-primary" type="submit">
-                     <i class="fas fa-edit"></i> Submit</button>
-                 
-                     <a href="/bizcontacts-list" class="btn btn-warning">
-                         <i class="fas fa-undo"></i> Cancel</a>
-                     <a href="/bizcontacts-delete/<%= bizcontacts._id %>" class="btn btn-danger">
-                         <i class="fas fa-trash-alt"></i> Delete</a>
-                     
-                     </form>
-         </div>
- 
-     </div>
- </div>
+            </div>
+            <p class="text-center text-muted small">
+              Don't have an account? 
+              <a class="link" href="/register">Register Here!</a>
+            </p>
+      </div>
+    </div>
+  </div>

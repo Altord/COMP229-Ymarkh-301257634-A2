@@ -1,4 +1,12 @@
+/*
+* FILE			    :	bizcontacts.controller.server.js
+* PROJECT			:	COMP229 SEC 402
+* PROGRAMMER		:	Yehoshya Markh
+* SID               :   301257634
+* DATE              :   2022-10-22
+*/
 import bizcontactsModel from "../models/bizcontacts.js";
+import { UserDisplayName } from '../routes/utils/index.js';
 
 export function DisplayBizContactsList(req, res, next){
     bizcontactsModel.find(function(err, bizcontactsCollection){
@@ -7,13 +15,10 @@ export function DisplayBizContactsList(req, res, next){
             res.end(err);
         }
 
-        res.render('index', {title: 'Business Contacts List', page: 'bizcontacts/list', bizcontacts: bizcontactsCollection})
+        res.render('index', {title: 'Business Contacts List', page: 'bizcontacts/list', bizcontacts: bizcontactsCollection, displayName: UserDisplayName(req)})
     })
 }
 
-///
-
-///
 
 export function DisplayBizContactsEditPage(req, res, next){
     let id = req.params.id;
@@ -24,7 +29,7 @@ export function DisplayBizContactsEditPage(req, res, next){
             res.end(err);
         }
 
-        res.render('index', {title: 'Edit Business Contact', page: 'bizcontacts/edit', bizcontacts: bizcontact });
+        res.render('index', {title: 'Edit Business Contact', page: 'bizcontacts/edit', bizcontacts: bizcontact, displayName: UserDisplayName(req) });
     });    
 }
 
